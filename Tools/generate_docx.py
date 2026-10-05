@@ -315,6 +315,18 @@ def build_document():
     add_bullet("", "Lab 14: SQL Injection Login Bypass: ", "Nhập username là administrator'-- để vô hiệu hóa hoàn toàn phần kiểm tra mật khẩu, đăng nhập thẳng vào tài khoản admin.")
     add_bullet("", "Lab 15: SQL Injection UNION Attack: ", "Dùng UNION SELECT NULL, NULL-- để dò số lượng cột, sau đó dùng UNION SELECT username, password FROM users-- để rút cạn mật khẩu của toàn bộ cơ sở dữ liệu.")
 
+    add_h2("Các Vị Trí Khai Thác SQL Injection Ngoài URL (Thực Chiến)")
+    p_sqli_loc = doc.add_paragraph()
+    p_sqli_loc.add_run("URL chỉ là bề nổi của tảng băng chìm. Trong thực tế, SQLi xuất hiện ở bất kỳ điểm nào dữ liệu bên ngoài đi vào câu truy vấn:")
+    add_bullet("", "1. Trong Request Body (JSON REST API & Form): ", "API tìm kiếm nhận JSON body {'keyword': 'iphone\\' OR 1=1--'}, form đăng nhập nhận username administrator\\'--.")
+    add_bullet("", "2. Trong HTTP Headers (User-Agent, Cookie, IP): ", "Backend ghi log thiết bị INSERT INTO logs (ip, user_agent) VALUES ('...', '$userAgent') ➔ Breaker tiêm mã SQL ngay trong Header User-Agent hoặc Cookie theo dõi.")
+    add_bullet("", "3. Second-Order SQLi (SQLi Bậc 2 - Bom hẹn giờ): ", "Dữ liệu được lưu an toàn vào DB lúc đăng ký (admin\\'--), nhưng sau đó ở chức năng đổi mật khẩu hoặc báo cáo, dev lại lấy username từ DB ra rồi nối chuỗi ➔ Mã độc phát hỏa.")
+    add_bullet("", "4. Tên tệp tin tải lên (File Upload): ", "Tên file chứa ký tự phá vỡ cú pháp SQL như avatar\\'; DROP TABLE users;--.png khi lưu vào DB.")
+
+    add_callout(doc, [
+        "Quy tắc vàng: Đừng chỉ nhìn vào URL bar! Mọi dữ liệu đến từ Header, Cookie, JSON body, hay thậm chí dữ liệu đã nằm sẵn trong Database đều có thể là vector tấn công SQL Injection nếu backend dùng phép cộng chuỗi thô."
+    ], title="ĐIỂM MÙ PHÒNG THỦ CỦA LẬP TRÌNH VIÊN")
+
     add_h2("Cách vá triệt để ở tầng Backend:")
     add_code_block(doc, "// Chuẩn mực: Luôn dùng Parameterized Queries (Prepared Statements)\n// Node.js (pg):\nawait pool.query('SELECT * FROM users WHERE username = $1', [username]);\n\n// Go Gin:\ndb.Query('SELECT * FROM users WHERE username = ? AND password = ?', username, password);\n\n// C# Dapper:\nconnection.QueryFirstOrDefaultAsync<User>('SELECT * FROM Users WHERE Username = @Username', new { Username = username });")
 
