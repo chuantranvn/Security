@@ -137,6 +137,6 @@ var user = await connection.QueryFirstOrDefaultAsync<User>(
 ---
 
 ## Checklist Hoàn Thành Của Bạn
-- [ ] Giải quyết xong Lab 1: SQL injection in WHERE clause (`' OR 1=1--`).
-- [ ] Giải quyết xong Lab 2: SQL injection login bypass (`administrator'--`).
-- [ ] Giải quyết xong Lab 3: SQL injection UNION attack (Trích xuất password bảng `users`).
+- [x] Giải quyết xong Lab 1: SQL injection in WHERE clause (`' OR 1=1--`).
+- [x] Giải quyết xong Lab 2: SQL injection login bypass (`administrator'--`).
+- [x] Giải quyết xong Lab 3: SQL injection UNION attack (Trích xuất password bảng `users`).

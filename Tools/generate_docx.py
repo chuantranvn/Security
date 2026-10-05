@@ -150,7 +150,7 @@ def build_document():
     meta_data = [
         ("Học viên / Lập trình viên:", "Adjim"),
         ("Mục tiêu đào tạo:", "Chuyển đổi Backend Dev sang AppSec / Penetration Tester chuyên nghiệp"),
-        ("Tổng số Lab thực hành đã hoàn thành:", "12 bài Labs (Cơ bản Apprentice & Nâng cao Practitioner)"),
+        ("Tổng số Lab thực hành đã hoàn thành:", "15 bài Labs (Cơ bản Apprentice & Nâng cao Practitioner)"),
     ]
     for row_idx, (k, v) in enumerate(meta_data):
         c1 = meta_table.cell(row_idx, 0)
@@ -337,7 +337,7 @@ def build_document():
         ("Access Control Nâng cao", "3 bài", "Practitioner", "✅ ĐÃ HOÀN THÀNH"),
         ("Tấn công Token JWT", "3 bài", "Practitioner", "✅ ĐÃ HOÀN THÀNH"),
         ("Tấn công nội bộ SSRF", "3 bài", "Practitioner", "✅ ĐÃ HOÀN THÀNH"),
-        ("SQL Injection (SQLi)", "3 bài", "Practitioner", "⏳ ĐANG THỰC HIỆN"),
+        ("SQL Injection (SQLi)", "3 bài", "Practitioner", "✅ ĐÃ HOÀN THÀNH"),
     ]
     
     for row_idx, row_values in enumerate(rows_data, start=1):

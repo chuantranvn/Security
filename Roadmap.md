@@ -42,7 +42,7 @@ flowchart TD
 - [x] **Access Control & BOLA (Broken Object Level Authorization)**: IDOR, phân quyền ngang (horizontal) và phân quyền dọc (vertical) *(Đã hoàn thành 6 Labs Apprentice & Practitioner)*.
 - [x] **Authentication & Session Flaws**: JWT attacks (None algorithm, brute-force weak HMAC secret, key confusion), Session Fixation *(Đã hoàn thành 3 Labs JWT)*.
 - [x] **Server-Side Request Forgery (SSRF)**: Khai thác Cloud metadata (`169.254.169.254`), tấn công microservices nội bộ *(Đã hoàn thành 3 Labs Apprentice & Practitioner)*.
-- [ ] **Injection Flaws**: SQL Injection (Bypass ORM, Time-based blind SQLi), Command Injection, SSTI (Server-Side Template Injection).
+- [x] **Injection Flaws**: SQL Injection (Bypass ORM, Time-based blind SQLi), Command Injection, SSTI (Server-Side Template Injection) *(Đã hoàn thành 3 Labs SQLi)*.
 - [ ] **Race Conditions & Concurrency**: Lỗi logic thanh toán, lạm dụng coupon bằng `Turbo Intruder`.
 - [ ] **Thực hành**:
   - Hoàn thành tối thiểu **30 bài lab mức độ Apprentice & Practitioner** trên PortSwigger.
